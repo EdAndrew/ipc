@@ -36,6 +36,8 @@ int main()
 		writefd = open(FIFO2, O_WRONLY, 0);	//there is dead lock problem!
 		readfd = open(FIFO1, O_RDONLY, 0);
 		server(readfd, writefd);
+		close(writefd);
+		close(readfd);
 		exit(0);
 	}
 	readfd = open(FIFO2, O_RDONLY, 0);
